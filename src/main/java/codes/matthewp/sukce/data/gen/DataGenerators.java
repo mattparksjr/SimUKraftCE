@@ -1,3 +1,4 @@
+/* (C) SimUCraftCE 2025 */
 package codes.matthewp.sukce.data.gen;
 
 import codes.matthewp.sukce.SimUKraftCE;
@@ -23,6 +24,9 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
+        // generator.addProvider(event.includeServer(), new SimItemTagProvider(output, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
+
+        generator.addProvider(event.includeClient(), new SimItemModelProvider(output, existingFileHelper));
         generator.addProvider(event.includeClient(), new SimLangProvider(output));
     }
 }
